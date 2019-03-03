@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.xit.ssm.mapper.UsersMapper1" >
+  <resultMap id="BaseResultMap" type="edu.xit.ssm.po.Users" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="tx" property="tx" jdbcType="VARCHAR" />
+  </resultMap>
+	<select id="selectUsers" resultMap="BaseResultMap">
+		select * from users
+	</select>
+</mapper>

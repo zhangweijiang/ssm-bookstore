@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.xit.ssm.mapper.ManagerMapper1" >
+  <resultMap id="BaseResultMap" type="edu.xit.ssm.po.Manager" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="manager_name" property="managerName" jdbcType="VARCHAR" />
+    <result column="manager_password" property="managerPassword" jdbcType="VARCHAR" />
+  </resultMap>
+  
+ 	<select id="selectManagers" resultMap="BaseResultMap">
+		select * from Manager
+	</select>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.xit.ssm.mapper.ShopcartMapper1" >
+  <resultMap id="BaseResultMap" type="edu.xit.ssm.po.Shopcart" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="book_id" property="bookId" jdbcType="INTEGER" />
+    <result column="book_name" property="bookName" jdbcType="VARCHAR" />
+    <result column="rob" property="rob" jdbcType="REAL" />
+    <result column="number" property="number" jdbcType="REAL" />
+    <result column="subtotal" property="subtotal" jdbcType="REAL" />
+    <result column="price" property="price" jdbcType="REAL" />
+  </resultMap>
+  
+  	<select id="selectCarts" resultMap="BaseResultMap">
+		select * from shopcart where user_id=#{userId} order by id desc
+	</select>
+  
+   <delete id="deleteByBookId" parameterType="java.lang.Integer" >
+    delete from shopcart
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </delete>
+</mapper>

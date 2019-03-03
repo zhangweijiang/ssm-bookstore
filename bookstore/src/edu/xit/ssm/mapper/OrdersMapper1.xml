@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.xit.ssm.mapper.OrdersMapper1" >
+  <resultMap id="BaseResultMap" type="edu.xit.ssm.po.Orders" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="book_id" property="bookId" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="trading_type" property="tradingType" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="subtotal" property="subtotal" jdbcType="REAL" />
+    <result column="rob" property="rob" jdbcType="REAL" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <result column="book_name" property="bookName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  
+  	<select id="selectOrders" resultMap="BaseResultMap">
+		select * from orders where user_id=#{userId} order by id desc
+	</select>
+	
+	<select id="selectOrders1" resultMap="BaseResultMap">
+		select * from orders  order by id desc
+	</select>
+</mapper>

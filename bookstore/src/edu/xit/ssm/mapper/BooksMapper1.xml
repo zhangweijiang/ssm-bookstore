@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.xit.ssm.mapper.BooksMapper1" >
+  <resultMap id="BaseResultMap" type="edu.xit.ssm.po.Books" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="book_name" property="bookName" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="pub" property="pub" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="rob" property="rob" jdbcType="REAL" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="edu.xit.ssm.po.Books" extends="BaseResultMap" >
+    <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
+
+	<select id="selectBooks" resultMap="BaseResultMap">
+		select * from books order by id desc
+	</select>
+	
+	<select id="selectBooksId" resultMap="BaseResultMap">
+		select * from books where id=#{id}
+	</select>
+	
+
+	
+	<select id="selectBookByName"  resultMap="BaseResultMap">
+		select * from Books where book_name LIKE concat('%',#{value},'%')
+	</select>
+	
+
+</mapper>
